@@ -1,0 +1,316 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>কারিগরপাড়া ঈদগাহ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Tiro+Bangla&family=Noto+Serif+Bengali:wght@700;800&display=swap">
+<style>
+/* Layout: open-sky hero over a field of prayer rows, Eid jamaat cards, sunnah checklist, ground info and rules, fitra + contact band */
+:root {
+  --bg: #f4f7fa;
+  --surface: #ffffff;
+  --fg: #14233a;
+  --muted: #56667c;
+  --sky-top: #cfe3f2;
+  --sky-bottom: #f4f7fa;
+  --field: #2e6f46;
+  --field-2: #3f8a5a;
+  --moon: #c48a1c;
+  --moon-soft: #f6e8c6;
+  --line: #d6dfe8;
+  --on-field: #f1f8f3;
+  --font-display: "Noto Serif Bengali", "Tiro Bangla", serif;
+  --font-body: "Hind Siliguri", "Noto Sans Bengali", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1424; --surface: #131e33; --fg: #e8eef7; --muted: #9fb0c6;
+    --sky-top: #101d3a; --sky-bottom: #0c1424; --field: #1d4a30; --field-2: #2a6a45;
+    --moon: #e8bd5c; --moon-soft: #2b2411; --line: #24324a; --on-field: #eef7f0; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c1424; --surface: #131e33; --fg: #e8eef7; --muted: #9fb0c6;
+  --sky-top: #101d3a; --sky-bottom: #0c1424; --field: #1d4a30; --field-2: #2a6a45;
+  --moon: #e8bd5c; --moon-soft: #2b2411; --line: #24324a; --on-field: #eef7f0; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.7; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--moon); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.35; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.wrap {
+  max-width: 1120px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.kicker { font-size: 0.85rem; letter-spacing: 0.08em; color: var(--moon); font-weight: 600; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--sky-top); }
+
+/* bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--sky-top); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
+.brand { font-family: var(--font-display); font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 10px; min-width: 0; }
+.nav { display: flex; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
+.nav a { text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 0.95rem; }
+.nav a:hover { background: color-mix(in srgb, var(--fg) 10%, transparent); }
+@media (max-width: 760px) { .nav a:nth-child(n+4) { display: none; } }
+
+/* hero */
+.hero { background: linear-gradient(var(--sky-top), var(--sky-bottom) 85%); position: relative; overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: center; padding-block: 56px 48px; position: relative; }
+.hero h1 { font-size: clamp(2.1rem, 5.4vw, 3.6rem); font-weight: 800; margin-top: 10px; }
+.hero .lead { margin-top: 16px; max-width: 32em; color: var(--muted); font-size: 1.1rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.btn { display: inline-block; text-decoration: none; padding: 11px 22px; border-radius: 8px; font-weight: 600; border: 2px solid transparent; cursor: pointer; font-family: inherit; font-size: 1rem; }
+.btn-solid { background: var(--field); color: var(--on-field); }
+.btn-solid:hover { background: var(--field-2); }
+.btn-ghost { border-color: var(--field); color: var(--fg); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--field) 14%, transparent); }
+.moon-box { display: grid; justify-items: center; gap: 8px; text-align: center; min-width: 0; }
+.moon-box svg { width: min(220px, 60%); height: auto; color: var(--moon); }
+.countdown { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; width: 100%; max-width: 360px; }
+.countdown .label { color: var(--muted); font-size: 0.92rem; }
+.countdown .days { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; color: var(--field); line-height: 1.3; font-variant-numeric: tabular-nums; }
+:root[data-theme="dark"] .countdown .days { color: var(--moon); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .countdown .days { color: var(--moon); } }
+.countdown .sub { color: var(--muted); font-size: 0.85rem; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } }
+.field { height: 44px; background:
+  repeating-linear-gradient(90deg, var(--field) 0 38px, var(--field-2) 38px 40px); }
+
+/* sections */
+section { padding-block: 64px; }
+.sec-head { max-width: 40em; margin-bottom: 32px; }
+.sec-head h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); margin-top: 6px; }
+.sec-head p { color: var(--muted); margin-top: 10px; }
+.alt { background: var(--surface); border-block: 1px solid var(--line); }
+
+/* eid cards */
+.eids { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.eid { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; min-width: 0; }
+.eid header { background: var(--field); color: var(--on-field); padding: 20px 24px; }
+.eid header p { color: var(--moon-soft); font-size: 0.9rem; }
+.eid header h3 { font-size: 1.5rem; margin-top: 2px; }
+.eid dl { margin: 0; padding: 8px 24px 20px; }
+.eid dl div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.eid dl div:last-child { border-bottom: 0; }
+.eid dt { color: var(--muted); }
+.eid dd { margin: 0; font-weight: 700; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.eid .note { padding: 0 24px 20px; color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 760px) { .eids { grid-template-columns: 1fr; } }
+
+/* sunnah checklist */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; counter-reset: s; }
+.steps li { counter-increment: s; border: 1px solid var(--line); border-radius: 12px; padding: 20px; background: var(--bg); min-width: 0; }
+.steps li::before { content: counter(s, bengali); font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--moon); }
+.steps h3 { font-size: 1.1rem; margin-top: 2px; }
+.steps p { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+
+/* ground */
+.ground { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fact { border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; background: var(--surface); min-width: 0; }
+.fact b { display: block; font-family: var(--font-display); font-size: 1.1rem; }
+.fact span { font-size: 0.9rem; color: var(--muted); }
+.rules { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.rules li { padding: 14px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 24px 1fr; gap: 10px; }
+.rules svg { color: var(--field); margin-top: 5px; }
+:root[data-theme="dark"] .rules svg { color: var(--moon); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .rules svg { color: var(--moon); } }
+@media (max-width: 860px) { .ground { grid-template-columns: 1fr; } }
+
+/* band */
+.band { background: var(--field); color: var(--on-field); }
+.band .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.band .kicker { color: var(--moon-soft); }
+.band h2 { font-size: clamp(1.5rem, 3.2vw, 2rem); margin-top: 6px; }
+.band p { color: color-mix(in srgb, var(--on-field) 88%, transparent); margin-top: 10px; }
+.acct { margin-top: 18px; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; padding: 16px 18px; display: grid; gap: 10px; }
+.acct div { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.acct span { color: var(--moon-soft); font-size: 0.9rem; }
+.btn-light { background: var(--moon-soft); color: #3a2a06; margin-top: 14px; }
+.btn-light:hover { background: #fff; }
+.contact-list { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.contact-list li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; }
+.contact-list span { color: var(--moon-soft); font-size: 0.9rem; }
+@media (max-width: 860px) { .band .cols { grid-template-columns: 1fr; } }
+footer { background: var(--field); color: color-mix(in srgb, var(--on-field) 75%, transparent); border-top: 1px solid rgba(255,255,255,0.18); font-size: 0.9rem; }
+footer .wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@counter-style bengali { system: numeric; symbols: "০" "১" "২" "৩" "৪" "৫" "৬" "৭" "৮" "৯"; }
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="কারিগরপাড়া ঈদগাহ, শুরুতে যান">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path d="M21 4a12 12 0 1 0 7 21A10 10 0 0 1 21 4z" fill="var(--moon)"/></svg>
+      <span>কারিগরপাড়া ঈদগাহ</span>
+    </a>
+    <nav class="nav" aria-label="প্রধান মেনু">
+      <a href="#jamaat">ঈদের জামাত</a>
+      <a href="#sunnah">ঈদের দিনের আমল</a>
+      <a href="#ground">ঈদগাহ পরিচিতি</a>
+      <a href="#rules">নিয়মাবলি</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">কচুয়া · কারিগরপাড়া</p>
+        <h1>কচুয়া কারিগরপাড়া ঈদগাহ ময়দান</h1>
+        <p class="lead">খোলা আকাশের নিচে ঈদুল ফিতর ও ঈদুল আযহার জামাত। পাড়ার সব বয়সের মুসল্লি একসাথে কাতারে দাঁড়ানোর জায়গা।</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#jamaat">জামাতের সময়</a>
+          <a class="btn btn-ghost" href="#rules">ঈদগাহের নিয়ম</a>
+        </div>
+      </div>
+      <div class="moon-box">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M78 12A50 50 0 1 0 108 88 42 42 0 0 1 78 12z" fill="currentColor"/><path d="M96 30l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="currentColor"/></svg>
+        <div class="countdown" aria-live="polite">
+          <p class="label">পরবর্তী ঈদুল ফিতর (আনুমানিক)</p>
+          <p class="days" id="days">–</p>
+          <p class="sub">চাঁদ দেখা সাপেক্ষে ১০ মার্চ ২০২৭ ধরে হিসাব। তারিখ এক দিন এদিক-ওদিক হতে পারে।</p>
+        </div>
+      </div>
+    </div>
+    <div class="field" aria-hidden="true"></div>
+  </div>
+
+  <section id="jamaat">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">ঈদের জামাত</p>
+        <h2>দুই ঈদের সময়সূচি</h2>
+        <p>ঈদের তারিখ চাঁদ দেখার উপর নির্ভর করে। জামাতের সময় ঈদের আগের দিন মাইকে ও এই পাতায় জানানো হবে।</p>
+      </div>
+      <div class="eids">
+        <article class="eid">
+          <header><p>রমজানের পর</p><h3>ঈদুল ফিতর</h3></header>
+          <dl>
+            <div><dt>তাকবীর শুরু</dt><dd>সকাল ৭:৪৫</dd></div>
+            <div><dt>জামাত</dt><dd>সকাল ৮:৩০</dd></div>
+            <div><dt>খুতবা</dt><dd>জামাতের পর</dd></div>
+            <div><dt>ইমাম</dt><dd>কমিটি ঘোষণা করবে</dd></div>
+          </dl>
+          <p class="note">নমুনা সময়। কমিটির ঘোষিত সময় দিয়ে বদলে নিন।</p>
+        </article>
+        <article class="eid">
+          <header><p>হজের মাসে</p><h3>ঈদুল আযহা</h3></header>
+          <dl>
+            <div><dt>তাকবীর শুরু</dt><dd>সকাল ৭:১৫</dd></div>
+            <div><dt>জামাত</dt><dd>সকাল ৮:০০</dd></div>
+            <div><dt>খুতবা</dt><dd>জামাতের পর</dd></div>
+            <div><dt>ইমাম</dt><dd>কমিটি ঘোষণা করবে</dd></div>
+          </dl>
+          <p class="note">নমুনা সময়। কুরবানির পশু জামাতের পর জবাই করতে হবে।</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sunnah" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">ঈদের দিনের আমল</p>
+        <h2>ঈদগাহে যাওয়ার আগে ও পরে</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>গোসল ও পরিচ্ছন্নতা</h3><p>গোসল করুন, মেসওয়াক করুন, পরিষ্কার ও সুন্দর পোশাক পরুন, আতর ব্যবহার করুন।</p></li>
+        <li><h3>সদকাতুল ফিতর</h3><p>ঈদুল ফিতরে জামাতে যাওয়ার আগেই ফিতরা আদায় করুন, যাতে গরিবরা ঈদের আনন্দে অংশ নিতে পারে।</p></li>
+        <li><h3>তাকবীর পড়তে পড়তে যান</h3><p>ঈদগাহে যাওয়ার পথে নিচু স্বরে বা ঈদুল আযহায় উচ্চস্বরে তাকবীর পড়ুন।</p></li>
+        <li><h3>ভিন্ন পথে ফিরুন</h3><p>এক পথে যান, অন্য পথে ফিরে আসুন। জামাতের পর একে অপরকে ঈদের শুভেচ্ছা জানান।</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="ground">
+    <div class="wrap ground">
+      <div>
+        <p class="kicker">ঈদগাহ পরিচিতি</p>
+        <h2 style="font-size:clamp(1.6rem,3.6vw,2.2rem);margin-top:6px">পাড়ার সবার ঈদগাহ</h2>
+        <p style="margin-top:16px">ঈদগাহ ময়দান ঈদের জামাত ও জানাজার নামাজের জন্য ব্যবহৃত হয়। স্থানীয় মানুষের দান ও সহযোগিতায় ময়দান পরিষ্কার, মেরামত ও সীমানা প্রাচীরের কাজ চলে।</p>
+        <p style="margin-top:14px">ঈদের কয়েকদিন আগে স্বেচ্ছাসেবকরা মাঠ সমান করেন এবং কাতার চিহ্নিত করেন।</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>অবস্থান</b><span>কারিগরপাড়া, কচুয়া। সঠিক ঠিকানা যোগ করুন</span></div>
+        <div class="fact"><b>মাঠের আয়তন</b><span>কমিটির তথ্য যোগ করুন</span></div>
+        <div class="fact"><b>মুসল্লি ধারণক্ষমতা</b><span>কমিটির তথ্য যোগ করুন</span></div>
+        <div class="fact"><b>মহিলাদের ব্যবস্থা</b><span>আলাদা স্থান আছে কি না লিখুন</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">নিয়মাবলি</p>
+        <h2>ঈদগাহে আসার আগে জেনে নিন</h2>
+      </div>
+      <ul class="rules">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>নিজের জায়নামাজ বা চাটাই সাথে আনুন। ভেজা মাঠের জন্য পলিথিন নিতে পারেন।</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>জামাত শুরুর অন্তত ২০ মিনিট আগে পৌঁছান এবং সামনের কাতার আগে পূরণ করুন।</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>মোবাইল ফোন বন্ধ বা সাইলেন্ট রাখুন।</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>যানবাহন মাঠের বাইরে নির্ধারিত জায়গায় রাখুন। সরু রাস্তা আটকাবেন না।</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>শিশুদের সাথে রাখুন এবং বয়স্ক ও অসুস্থ মুসল্লিদের জন্য জায়গা করে দিন।</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="band">
+    <div class="wrap cols">
+      <div>
+        <p class="kicker">ঈদগাহ উন্নয়ন তহবিল</p>
+        <h2>ময়দানের কাজে সহযোগিতা করুন</h2>
+        <p>দানের টাকা মাঠ সমান করা, সীমানা প্রাচীর, মাইক ও পানির ব্যবস্থায় ব্যয় হয়।</p>
+        <div class="acct">
+          <div><span>বিকাশ / নগদ (পার্সোনাল)</span><b id="payNo">০১XXX-XXXXXX</b></div>
+          <div><span>হিসাবধারী</span><b>ঈদগাহ কমিটির কোষাধ্যক্ষ</b></div>
+        </div>
+        <button class="btn btn-light" id="copyBtn" type="button">নম্বর কপি করুন</button>
+      </div>
+      <div>
+        <p class="kicker">যোগাযোগ</p>
+        <h2>ঈদগাহ কমিটি</h2>
+        <ul class="contact-list">
+          <li><span>ঠিকানা</span><b>কারিগরপাড়া, কচুয়া</b></li>
+          <li><span>সভাপতি</span><b>০১XXX-XXXXXX</b></li>
+          <li><span>সম্পাদক</span><b>০১XXX-XXXXXX</b></li>
+          <li><span>ইমেইল</span><b>example@eidgah.org</b></li>
+        </ul>
+        <p>নম্বর ও ঠিকানা কমিটির সঠিক তথ্য দিয়ে বদলে নিন।</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© কচুয়া কারিগরপাড়া ঈদগাহ কমিটি</span>
+    <span>তাকাব্বালাল্লাহু মিন্না ওয়া মিনকুম। ঈদ মোবারক।</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var digits = "০১২৩৪৫৬৭৮৯";
+  function bn(s) { return String(s).replace(/[0-9]/g, function (d) { return digits[d]; }); }
+  var el = document.getElementById("days");
+  var target = new Date(2027, 2, 10);
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var d = Math.round((target - today) / 86400000);
+  el.textContent = d > 0 ? bn(d) + " দিন বাকি" : "ঈদ মোবারক";
+
+  var btn = document.getElementById("copyBtn"), no = document.getElementById("payNo");
+  btn.addEventListener("click", function () {
+    var done = function () { btn.textContent = "কপি হয়েছে"; setTimeout(function () { btn.textContent = "নম্বর কপি করুন"; }, 1800); };
+    var sel = function () { var r = document.createRange(); r.selectNodeContents(no); var s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(no.textContent).then(done, sel); } catch (e) { sel(); }
+  });
+})();
+</script>
+
+</body></html>
